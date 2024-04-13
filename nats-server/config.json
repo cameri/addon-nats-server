@@ -1,0 +1,104 @@
+{
+  "name": "NATS Server",
+  "version": "2.10.14",
+  "slug": "nats-server",
+  "description": "High-Performance server for NATS.io, the cloud and edge native messaging system.",
+  "url": "https://github.com/Cameri/addon-nats-server/tree/master/nats-server",
+  "startup": "system",
+  "services": [],
+  "discovery": [
+    "mqtt"
+  ],
+  "arch": [
+    "aarch64",
+    "amd64",
+    "armv7"
+  ],
+  "boot": "auto",
+  "init": false,
+  "ingress": true,
+  "timeout": 10,
+  "panel_icon": "mdi:message-reply-outline",
+  "map": [
+    "ssl"
+  ],
+  "webui": "http://[HOST]:[PORT:8222]/varz",
+  "watchdog": "tcp://[HOST]:4222",
+  "ports": {
+    "4222/tcp": 4222,
+    "6222/tcp": 6222,
+    "8222/tcp": 8222,
+    "1883/tcp": 1883
+  },
+  "ports_description": {
+    "4222/tcp": "TCP listening port for NATS clients",
+    "6222/tcp": "Routing port for clustering",
+    "8222/tcp": "HTTP management port",
+    "1883/tcp": "MQTT listening port"
+  },
+  "options": {
+    "jetstream": {
+      "enabled": false
+    },
+    "mqtt": {
+      "enabled": true,
+      "username": "nats-mqtt",
+      "timeout": 2
+    },
+    "cluster": {
+      "enabled": false,
+      "name": "ha-cluster",
+      "timeout": 2,
+      "routes": []
+    }
+  },
+  "schema": {
+    "server_name": "str?",
+    "jetstream": {
+      "enabled": "bool",
+      "max_mem": "str?",
+      "max_file": "str?",
+      "cipher": "list(chachapoly|aes)?",
+      "key": "str?"
+    },
+    "mqtt": {
+      "enabled": "bool",
+      "username": "str?",
+      "password": "str?",
+      "timeout": "int?",
+      "tls": "bool?",
+      "tls_cert_file": "str?",
+      "tls_key_file": "str?",
+      "tls_ca_file": "str?",
+      "tls_verify": "bool?",
+      "tls_timeout": "int?",
+      "tls_verify_and_map": "bool?",
+      "no_auth_user": "str?",
+      "ack_wait": "str?",
+      "max_ack_pending": "int?"
+    },
+    "cluster": {
+      "enabled": "bool",
+      "name": "str?",
+      "host": "str?",
+      "username": "str?",
+      "password": "str?",
+      "timeout": "int?",
+      "routes": [
+        "str"
+      ],
+      "tls": "bool?",
+      "tls_cert_file": "str?",
+      "tls_key_file": "str?",
+      "tls_ca_file": "str?",
+      "tls_verify": "bool?",
+      "tls_timeout": "int?",
+      "tls_verify_and_map": "bool?"
+    },
+    "debug": "bool?",
+    "trace": "bool?",
+    "logtime": "bool?",
+    "logfile_size_limit": "str?",
+    "log_file": "str?"
+  }
+}

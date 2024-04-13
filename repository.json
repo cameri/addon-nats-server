@@ -1,0 +1,5 @@
+{
+  "name": "Home Assistant Add-on: NATS Server",
+  "url": "https://github.com/Cameri/addon-nats-server",
+  "maintainer": "Ricardo Cabral <addon-nats-server@ricardocabral.io>"
+}
