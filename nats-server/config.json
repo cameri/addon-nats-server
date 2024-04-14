@@ -3,7 +3,7 @@
   "version": "dev",
   "slug": "nats-server",
   "description": "High-Performance server for NATS.io, the cloud and edge native messaging system.",
-  "url": "https://github.com/Cameri/addon-nats-server/tree/master/nats-server",
+  "url": "https://github.com/cameri/addon-nats-server/tree/master/nats-server",
   "startup": "system",
   "services": [],
   "discovery": ["mqtt"],
