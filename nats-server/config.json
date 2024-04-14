@@ -14,16 +14,12 @@
     "amd64",
     "armv7"
   ],
-  "boot": "auto",
   "init": false,
   "ingress": true,
-  "timeout": 10,
   "panel_icon": "mdi:message-reply-outline",
   "map": [
     "ssl"
   ],
-  "webui": "http://[HOST]:[PORT:8222]/varz",
-  "watchdog": "tcp://[HOST]:4222",
   "ports": {
     "4222/tcp": 4222,
     "6222/tcp": 6222,
