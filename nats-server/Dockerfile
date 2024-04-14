@@ -1,5 +1,6 @@
 ARG BUILD_FROM=ghcr.io/hassio-addons/base/aarch64:15.0.8
 
+# hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # Confiure locale
@@ -25,7 +26,10 @@ RUN set -eux; \
 	wget -q -O nats-server.tar.gz "https://github.com/nats-io/nats-server/releases/download/v${NATS_SERVER_VERSION}/nats-server-v${NATS_SERVER_VERSION}-linux-${natsArch}.tar.gz"; \
 	echo "${sha256} *nats-server.tar.gz" | sha256sum -c -; \
 	\
-	apk add --no-cache ca-certificates=20240226-r0 tzdata=2024a-r0 gettext=0.22.3-r0; \
+	apk add --no-cache \
+		ca-certificates=20240226-r0 \
+		tzdata=2024a-r0 \
+		gettext=0.22.3-r0; \
 	\
 	tar -xf nats-server.tar.gz; \
 	rm nats-server.tar.gz; \
