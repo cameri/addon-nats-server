@@ -1,6 +1,6 @@
 {
   "name": "NATS Server",
-  "version": "2.10.14",
+  "version": "dev",
   "slug": "nats-server",
   "description": "High-Performance server for NATS.io, the cloud and edge native messaging system.",
   "url": "https://github.com/Cameri/addon-nats-server/tree/master/nats-server",
@@ -16,6 +16,7 @@
   ],
   "init": false,
   "ingress": true,
+  "ingress_port": 8222,
   "panel_icon": "mdi:message-reply-outline",
   "map": [
     "ssl"
