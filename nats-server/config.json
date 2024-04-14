@@ -6,21 +6,13 @@
   "url": "https://github.com/Cameri/addon-nats-server/tree/master/nats-server",
   "startup": "system",
   "services": [],
-  "discovery": [
-    "mqtt"
-  ],
-  "arch": [
-    "aarch64",
-    "amd64",
-    "armv7"
-  ],
+  "discovery": ["mqtt"],
+  "arch": ["aarch64", "amd64", "armv7"],
   "init": false,
   "ingress": true,
   "ingress_port": 8222,
   "panel_icon": "mdi:message-reply-outline",
-  "map": [
-    "ssl"
-  ],
+  "map": ["ssl"],
   "ports": {
     "4222/tcp": 4222,
     "6222/tcp": 6222,
@@ -81,9 +73,7 @@
       "username": "str?",
       "password": "str?",
       "timeout": "int?",
-      "routes": [
-        "str"
-      ],
+      "routes": ["str"],
       "tls": "bool?",
       "tls_cert_file": "str?",
       "tls_key_file": "str?",
