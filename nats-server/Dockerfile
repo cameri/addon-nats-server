@@ -12,7 +12,7 @@ ENV \
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG NATS_SERVER_VERSION
+ARG NATS_SERVER_VERSION=2.10.14
 
 RUN set -eux; \
 	apkArch="$(apk --print-arch)"; \

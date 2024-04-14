@@ -3,5 +3,3 @@ build_from:
   aarch64: ghcr.io/hassio-addons/base/aarch64:15.0.8
   amd64: ghcr.io/hassio-addons/base/amd64:15.0.8
   armv7: ghcr.io/hassio-addons/base/armv7:15.0.8
-args:
-  NATS_SERVER_VERSION: 2.10.14
