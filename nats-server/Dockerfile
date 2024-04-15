@@ -13,6 +13,7 @@ ENV \
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG NATS_SERVER_VERSION=2.10.14
+# adapted from: https://github.com/nats-io/nats-docker/blob/b39950ece3064f20a2a5e25806d093793e455769/2.10.x/alpine3.19/Dockerfile
 
 RUN set -eux; \
 	apkArch="$(apk --print-arch)"; \
