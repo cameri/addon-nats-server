@@ -1,6 +1,6 @@
 {
   "name": "NATS Server",
-  "version": "dev",
+  "version": "2.10.14-1",
   "slug": "nats-server",
   "description": "High-Performance server for NATS.io, the cloud and edge native messaging system.",
   "url": "https://github.com/cameri/addon-nats-server/tree/master/nats-server",
