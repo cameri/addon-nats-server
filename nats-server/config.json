@@ -42,8 +42,7 @@
       "timeout": 2,
       "routes": []
     },
-    "leafnodes": {
-    },
+    "leafnodes": {},
     "leafnodes_remotes": []
   },
   "schema": {
@@ -88,7 +87,7 @@
       "tls_verify_and_map": "bool?"
     },
     "leafnodes": {
-      "allow_incoming_connections": "bool?",
+      "allow_incoming_connections": "bool?"
     },
     "leafnodes_remotes": [
       {
