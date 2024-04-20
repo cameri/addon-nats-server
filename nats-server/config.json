@@ -43,8 +43,8 @@
       "routes": []
     },
     "leafnodes": {
-      "remotes": []
-    }
+    },
+    "leafnodes_remotes": []
   },
   "schema": {
     "server_name": "str?",
@@ -89,13 +89,13 @@
     },
     "leafnodes": {
       "allow_incoming_connections": "bool?",
-      "remotes": [
-        {
-          "url": "str",
-          "credentials": "str?"
-        }
-      ]
     },
+    "leafnodes_remotes": [
+      {
+        "url": "str",
+        "credentials": "str?"
+      }
+    ],
     "debug": "bool?",
     "trace": "bool?",
     "logtime": "bool?",

@@ -147,9 +147,9 @@ CONFIG="/etc/nats/nats-server.conf"
     if bashio::config.exists 'leafnodes.allow_incoming_connections'; then
         echo "    port = 7422"
     fi
-    if bashio::config.exists 'leafnodes.remotes'; then
+    if bashio::config.exists 'leafnodes_remotes'; then
         echo "    remotes = ["
-            for remote in $(bashio::config 'leafnodes.remotes')
+            for remote in $(bashio::config 'leafnodes_remotes')
             do
                 REMOTE_URL=$(bashio::jq "$remote" '.url')
                 REMOTE_CREDENTIALS=$(bashio::jq "$remote" '.credentials')
