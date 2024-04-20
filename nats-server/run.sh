@@ -31,7 +31,7 @@ CONFIG="/etc/nats/nats-server.conf"
         if bashio::config.exists 'jetstream.key'; then
             echo "    key: $(bashio::config 'jetstream.key')"
         fi
-        echo "}"
+        echo "}" # jetstream
     fi
 
     # MQTT
@@ -71,7 +71,7 @@ CONFIG="/etc/nats/nats-server.conf"
             fi
             echo "    }" # tls
         fi
-        echo "}"
+        echo "}" # mqtt
     fi
 
     # Clustering
@@ -139,7 +139,30 @@ CONFIG="/etc/nats/nats-server.conf"
         fi
     fi
 
-    echo "}"
+    echo "}" # clustering
+
+    # LeafNodes
+    # source: https://docs.nats.io/running-a-nats-service/configuration/leafnodes
+    echo "leafnodes {"
+    if bashio::config.exists 'leafnodes.allow_incoming_connections'; then
+        echo "    port = 7422"
+    fi
+    if bashio::config.exists 'leafnodes.remotes'; then
+        echo "    remotes = ["
+            for remote in $(bashio::config 'leafnodes.remotes')
+            do
+                REMOTE_URL=$(bashio::jq "$remote" '.url')
+                REMOTE_CREDENTIALS=$(bashio::jq "$remote" '.credentials')
+                echo "        {"
+                echo "            url: \"$REMOTE_URL\""
+                if [[ -n "$REMOTE_CREDENTIALS" ]]; then
+                    echo "            credentials: \"$REMOTE_CREDENTIALS\""
+                fi
+                echo "        },"
+            done
+        echo "    ]"
+    fi
+    echo "}" # leafnodes
 
     # Logging
     # source: https://docs.nats.io/running-a-nats-service/configuration/logging
@@ -159,6 +182,8 @@ CONFIG="/etc/nats/nats-server.conf"
         echo "log_file: $(bashio::config 'log_file')"
     fi
 } > "$CONFIG"
+
+cat "$CONFIG"
 
 # this if will check if the first argument is a flag
 # but only works if all arguments require a hyphenated flag

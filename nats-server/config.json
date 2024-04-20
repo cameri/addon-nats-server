@@ -17,13 +17,15 @@
     "4222/tcp": 4222,
     "6222/tcp": 6222,
     "8222/tcp": 8222,
-    "1883/tcp": 1883
+    "1883/tcp": 1883,
+    "7422/tcp": 7422
   },
   "ports_description": {
     "4222/tcp": "TCP listening port for NATS clients",
     "6222/tcp": "Routing port for clustering",
     "8222/tcp": "HTTP management port",
-    "1883/tcp": "MQTT listening port"
+    "1883/tcp": "MQTT listening port",
+    "7422/tcp": "LeafNodes listening port (incoming connections)"
   },
   "options": {
     "jetstream": {
@@ -39,6 +41,9 @@
       "name": "ha-cluster",
       "timeout": 2,
       "routes": []
+    },
+    "leafnodes": {
+      "remotes": []
     }
   },
   "schema": {
@@ -81,6 +86,15 @@
       "tls_verify": "bool?",
       "tls_timeout": "int?",
       "tls_verify_and_map": "bool?"
+    },
+    "leafnodes": {
+      "allow_incoming_connections": "bool?",
+      "remotes": [
+        {
+          "url": "str",
+          "credentials": "str?"
+        }
+      ]
     },
     "debug": "bool?",
     "trace": "bool?",
